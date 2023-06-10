@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {Hero} from "../hero";
-import {HEROES} from "../mock-heroes";
 import {HeroDetailComponent} from "../hero-detail/hero-detail.component";
+import {HeroService} from "../hero.service";
 
 @Component({
   selector: 'app-heroes',
@@ -11,16 +11,22 @@ import {HeroDetailComponent} from "../hero-detail/hero-detail.component";
 })
 
 export class HeroesComponent implements OnInit {
-  constructor() {
+  constructor(private heroService: HeroService) {
   }
 
   ngOnInit(): void {
+    this.getHeroes();
   }
 
-  heroes: Hero[] = HEROES;
-  selectedHero?: Hero = undefined;
+  heroes: Hero[] = [];
+  selectedHero ?: Hero = undefined;
 
-  onSelect(hero: Hero): void {
+  onSelect(hero: Hero):
+    void {
     this.selectedHero = hero;
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 }
