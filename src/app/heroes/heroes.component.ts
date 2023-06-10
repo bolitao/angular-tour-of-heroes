@@ -18,12 +18,13 @@ export class HeroesComponent implements OnInit {
   }
 
   heroes: Hero[] = [];
-  selectedHero ?: Hero = undefined;
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
-  }
+  // selectedHero ?: Hero = undefined;
+
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
+  // }
 
   getHeroes(): void {
     let observable = this.heroService.getHeroes();
