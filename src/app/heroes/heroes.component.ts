@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {Hero} from "../hero";
 import {HEROES} from "../mock-heroes";
+import {HeroDetailComponent} from "../hero-detail/hero-detail.component";
 
 @Component({
   selector: 'app-heroes',
@@ -16,13 +17,8 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // hero = "Windstorm";
-  // hero: Hero = {id: 1, name: "Windstorm"}
-
   heroes: Hero[] = HEROES;
-
-  // selectedHero?: Hero = undefined;
-  selectedHero?: Hero;
+  selectedHero?: Hero = undefined;
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
